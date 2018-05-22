@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db1:
+    image: frapsoft/ts-node:yarn
+    ports:
+    - "3001:3000"
+    volumes:
+    - ./packages/db1-service:/app
+  db2:
+    image: frapsoft/ts-node:yarn
+    ports:
+    - "3002:3000"
+    volumes:
+    - ./packages/db2-service:/app
+  scale:
+    image: frapsoft/ts-node:yarn
+    ports:
+    - "3003:3000"
+    volumes:
+    - ./packages/scale-service:/app
