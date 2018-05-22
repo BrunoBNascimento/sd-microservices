@@ -1,0 +1,44 @@
+version: '2'
+services:
+  mysqldb1:
+    image: "mysql:5.7.10"
+    container_name: "db1-mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_USER: "mysqldb1"
+      MYSQL_PASSWORD: "123"
+      MYSQL_DATABASE: "mysqldb1"
+  mysqldb2:
+    image: "mysql:5.7.10"
+    container_name: "db2-mysql"
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_USER: "mysqldb2"
+      MYSQL_PASSWORD: "123"
+      MYSQL_DATABASE: "mysqldb2"
+  db1service:
+    build: .
+    volumes:
+      - $PWD/packages/db1-service:/service
+    ports:
+      - 3000:3000
+    command: bash -l -c 'yarn install && yarn start'
+    links:
+      - mysqldb1
+    depends_on:
+      - mysqldb1
+  db2service:
+    build: .
+    volumes:
+      - $PWD/packages/db2-service:/service
+    ports:
+      - 3001:3000
+    command: bash -l -c 'yarn install && yarn start'
+    links:
+      - mysqldb2
+    depends_on:
+      - mysqldb2
