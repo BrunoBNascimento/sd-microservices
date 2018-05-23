@@ -25,9 +25,6 @@ createConnection().then(async connection => {
         });
     });
 
-    // setup express app here
-    // ...
-
     // start express server
     app.listen(3000);
 

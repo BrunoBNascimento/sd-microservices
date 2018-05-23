@@ -49,7 +49,7 @@ services:
       - $PWD/packages/scale-service:/service
     ports:
       - 3000:3000
-    command: bash -l -c 'yarn install && yarn start'
+    command: bash -l -c 'npm install -g nodemon && yarn install && yarn start'
     links:
       - db1service
       - db2service
