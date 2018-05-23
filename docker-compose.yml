@@ -25,7 +25,7 @@ services:
     volumes:
       - $PWD/packages/db1-service:/service
     ports:
-      - 3000:3000
+      - 3001:3000
     command: bash -l -c 'yarn install && yarn start'
     links:
       - mysqldb1
@@ -36,9 +36,23 @@ services:
     volumes:
       - $PWD/packages/db2-service:/service
     ports:
-      - 3001:3000
+      - 3002:3000
     command: bash -l -c 'yarn install && yarn start'
     links:
       - mysqldb2
     depends_on:
       - mysqldb2
+  scaleservice:
+    image: node:8
+    working_dir: /service
+    volumes:
+      - $PWD/packages/scale-service:/service
+    ports:
+      - 3000:3000
+    command: bash -l -c 'yarn install && yarn start'
+    links:
+      - db1service
+      - db2service
+    depends_on:
+      - db1service
+      - db2service

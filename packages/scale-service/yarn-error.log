@@ -1,0 +1,54 @@
+Arguments: 
+  /home/ultrabook/.nvm/versions/node/v8.9.4/bin/node /home/ultrabook/.yarn/bin/yarn.js start
+
+PATH: 
+  /home/ultrabook/.yarn/bin:/home/ultrabook/.config/yarn/global/node_modules/.bin:/home/ultrabook/.nvm/versions/node/v8.9.4/bin:/home/ultrabook/bin:/home/ultrabook/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "scale-service",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "axios": "^0.18.0",
+      "cookie-parser": "~1.4.3",
+      "debug": "~2.6.9",
+      "express": "~4.16.0",
+      "http-errors": "~1.6.2",
+      "morgan": "~1.9.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c node app.js
+  Directory: /home/ultrabook/IFTM/SD/sd-services/packages/scale-service
+  Output:
+  
+      at ProcessTermError.MessageError (/home/ultrabook/.yarn/lib/cli.js:186:110)
+      at new ProcessTermError (/home/ultrabook/.yarn/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/home/ultrabook/.yarn/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
