@@ -10,6 +10,7 @@ createConnection().then(async connection => {
 
     // create express app
     const app = express();
+    const port = 3000
     app.use(bodyParser.json());
 
     // register express routes from defined application routes
@@ -26,14 +27,24 @@ createConnection().then(async connection => {
     });
 
     // start express server
-    app.listen(3000);
+    app.listen(port);
 
     // insert the first 100 registers
     const etc = await connection.manager.save(connection.manager.create(Account, {
         cc_conta_corrente: "19991-9",
         cc_total_reais: 27.9
     }));
+    const asciiart = 
+    `db1service: service is running on port ${port}
 
-    console.log("Express server has started on port 3000. Open http://localhost:3000/Accounts to see results");
+    888 888      d888                                     d8b                  
+    888 888     d8888                                     Y8P                  
+    888 888       888                                                          
+.d88888 88888b.   888  .d8888b   .d88b.  888d888 888  888 888  .d8888b .d88b.  
+d88" 888 888 "88b  888  88K      d8P  Y8b 888P"   888  888 888 d88P"   d8P  Y8b 
+888  888 888  888  888  "Y8888b. 88888888 888     Y88  88P 888 888     88888888 
+Y88b 888 888 d88P  888       X88 Y8b.     888      Y8bd8P  888 Y88b.   Y8b.     
+"Y88888 88888P" 8888888 88888P'  "Y8888  888       Y88P   888  "Y8888P "Y8888`
+    console.log(asciiart);
 
 }).catch(error => console.log(error));
