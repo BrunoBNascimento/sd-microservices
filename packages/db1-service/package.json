@@ -15,7 +15,7 @@
       "body-parser": "^1.18.1"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "sleep 10s && ts-node src/index.ts",
       "build-watch": "tsc -w"
    }
 }

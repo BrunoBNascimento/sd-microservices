@@ -1,9 +1,9 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryColumn, Column} from "typeorm";
 
 @Entity()
 export class Account {
         
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     cc_codigo: number;
 
     @Column()

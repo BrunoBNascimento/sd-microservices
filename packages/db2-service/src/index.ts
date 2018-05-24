@@ -30,10 +30,19 @@ createConnection().then(async connection => {
     app.listen(port);
 
     // insert the first 100 registers
-    const etc = await connection.manager.save(connection.manager.create(Account, {
-        cc_conta_corrente: "19991-9",
-        cc_total_reais: 27.9
-    }));
+    const generateHundread = async (iterator = 100) => {
+        iterator = ++iterator
+        console.log(`INSERT JOB, CURRENT INSERT: ${iterator}`)
+        const etc = await connection.manager.save(connection.manager.create(Account, {
+            cc_codigo: iterator,
+            cc_conta_corrente: "19991-9",
+            cc_total_reais: Math.random()
+        }));
+
+        return iterator === 200 ? -1 : generateHundread(iterator)
+    }
+    generateHundread()
+
     const asciiart = 
     `db1service: service is running on port ${port}
 
