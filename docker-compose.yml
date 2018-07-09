@@ -26,7 +26,7 @@ services:
       - $PWD/packages/db1-service:/service
     ports:
       - 3001:3000
-    command: bash -l -c 'yarn install && yarn start'
+    command: bash -l -c 'npm install -g nodemon && yarn install && yarn start'
     links:
       - mysqldb1
     depends_on:
@@ -37,7 +37,7 @@ services:
       - $PWD/packages/db2-service:/service
     ports:
       - 3002:3000
-    command: bash -l -c 'yarn install && yarn start'
+    command: bash -l -c 'npm install -g nodemon && yarn install && yarn start'
     links:
       - mysqldb2
     depends_on:

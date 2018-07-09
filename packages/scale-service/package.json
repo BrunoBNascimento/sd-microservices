@@ -3,14 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon --ignore 'utils/*.json' app.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "global": "^4.3.2",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "lodash": "^4.17.10",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.17.5"
   }
 }
